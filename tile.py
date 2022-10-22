@@ -10,9 +10,9 @@ class Tile(pg.Rect):
     display_width = 0
     color_index = ""
 
-    def __init__(self, surface, color_index, dimension, pos_left, pos_top, is_bomb, vicinity):
+    def __init__(self, surface, color_index, dimension, pos_left, pos_top, is_bomb):
         self.surface = surface
-        self.display_width = self.get_display_width(self.surface)
+        self.display_width = self.get_display_width()
         self.set_width(self.display_width, dimension)
         self.color_index = color_index
         self.dimension = dimension
@@ -35,6 +35,11 @@ class Tile(pg.Rect):
         return self.width
 
     def change_color(self, color_idx):
+        """
+        Changes color of tile according to provided color name
+        :param color_idx: String name of color
+        :return:
+        """
         self.draw_rect(color_idx)
         pass
 
@@ -60,7 +65,8 @@ class Tile(pg.Rect):
 
         self.width = screen_width / dimension
 
-    def get_display_width(self, surface):
+    @staticmethod
+    def get_display_width():
         """
         Gets and returns the screen width
         :param surface: screen
