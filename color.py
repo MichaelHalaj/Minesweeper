@@ -9,4 +9,9 @@ colors = {
 
 
 def get_color(color):
+    """
+    Gets a color from the dictionary according to name
+    :param color: name of color
+    :return: color (RGB)
+    """
     return colors[color]
